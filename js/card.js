@@ -5,15 +5,14 @@ class card extends HTMLElement {
     constructor(){
 
         super()
-        this.build()
+        this.shadow = this.attachShadow({mode: 'open'})
 
     }
 
-    build(){
+    connectedCallback(){
         
-        const shadow = this.attachShadow({mode: 'open'})
-        shadow.appendChild(this.styles())
-        shadow.appendChild(this.creatCard())
+        this.shadow.appendChild(this.styles())
+        this.shadow.appendChild(this.creatCard())
     
     }
 
